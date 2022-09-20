@@ -41,7 +41,7 @@ a {
 }
 
 a:visited {
-    color: var(--black-color);
+    color: var(--black);
 }
 
 button {
@@ -56,6 +56,6 @@ button {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--hover-focus-color);
+    background-color: var(--hover-focus);
     border-radius: 5px;
 }

@@ -1,1 +1,36 @@
+.card-box-list {
+    padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(6, 10%);
+    row-gap: 5px;
+    column-gap: 5px;
+    justify-content: center;
+    perspective: 500px;
+}
 
+.card-box-list-item {
+    cursor: pointer;
+    position: relative;
+    border: 2px solid #2d869d;
+    transform-style: preserve-3d;
+    transition: all 0.3s cubic-bezier(.39, .39, .76, .76);
+}
+
+.card-box-face-image {
+    transform: rotateY(-180deg);
+    pointer-events: none;
+}
+
+.card-box-back-image {
+    position: absolute;
+    top: 0;
+    pointer-events: none;
+}
+
+.card-box-back-image {
+    backface-visibility: hidden;
+}
+
+.toggleCard {
+    transform: rotateY(180deg);
+}

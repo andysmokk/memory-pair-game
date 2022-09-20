@@ -1,10 +1,8 @@
 :root {
   --default-font: "Lemonada";
-  --main-gray-color: #b1a6a6;
-  --blue-color: #0000ff;
-  --black-color: #000000;
-  --white-color: #ffffff;
-  --hover-focus-color: #ffd900;
+  --black: #000000;
+  --white: #ffffff;
+  --hover-focus: #ffd900;
 }
 
 html,
@@ -180,7 +178,7 @@ a {
 }
 
 a:visited {
-  color: var(--black-color);
+  color: var(--black);
 }
 
 button {
@@ -194,7 +192,7 @@ button {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--hover-focus-color);
+  background-color: var(--hover-focus);
   border-radius: 5px;
 }
 
@@ -207,12 +205,46 @@ button {
   position: relative;
 }
 
-.header {
-  box-shadow: 0px 5px 5px var(--main-gray-color);
+.header-title {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px;
 }
 
-.header-title {
-  font-size: 30px;
-  text-align: center;
-  padding: 20px;
+.card-box-list {
+  padding: 5px;
+  display: grid;
+  grid-template-columns: repeat(6, 10%);
+  row-gap: 5px;
+  column-gap: 5px;
+  justify-content: center;
+  perspective: 500px;
+}
+
+.card-box-list-item {
+  cursor: pointer;
+  position: relative;
+  border: 2px solid #2d869d;
+  transform-style: preserve-3d;
+  transition: all 0.3s cubic-bezier(0.39, 0.39, 0.76, 0.76);
+}
+
+.card-box-face-image {
+  transform: rotateY(-180deg);
+  pointer-events: none;
+}
+
+.card-box-back-image {
+  position: absolute;
+  top: 0;
+  pointer-events: none;
+}
+
+.card-box-back-image {
+  backface-visibility: hidden;
+}
+
+.toggleCard {
+  transform: rotateY(180deg);
 }/*# sourceMappingURL=styles.css.map */
