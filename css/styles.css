@@ -222,6 +222,11 @@ button {
   justify-content: center;
   perspective: 500px;
 }
+@media screen and (max-width: 700px) {
+  .card-box-list {
+    grid-template-columns: repeat(3, 14%);
+  }
+}
 
 .card-box-list-item {
   cursor: pointer;
