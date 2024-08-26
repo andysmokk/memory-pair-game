@@ -1,4 +1,16 @@
-import cardsData from "./data/data.json" assert { type: "json" };
+// Function to fetch JSON data
+const fetchCardsData = async () => {
+  try {
+    const response = await fetch("./data/data.json");
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching JSON data:", error);
+    return [];
+  }
+};
 
 const randomSorting = (cards) => {
   return cards.sort(() => Math.random() - 0.5);
@@ -29,7 +41,10 @@ const renderCards = (cards) => {
   });
 };
 
-renderCards(cardsData);
+// Fetch data and render cards
+fetchCardsData().then((cardsData) => {
+  renderCards(cardsData);
+});
 
 const flipCard = ({ target }) => {
   const clickedCard = target;
@@ -61,7 +76,9 @@ const flipCard = ({ target }) => {
 
     if (toggledCards.length === 18) {
       setTimeout(() => {
-        renderCards(cardsData);
+        fetchCardsData().then((cardsData) => {
+          renderCards(cardsData);
+        });
       }, 1000);
     }
   });
